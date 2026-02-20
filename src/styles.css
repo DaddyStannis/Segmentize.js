@@ -15,11 +15,11 @@
 .seg-text-layer {
   position: absolute;
   z-index: 10;
-  color: transparent;
   white-space: nowrap;
+  color: transparent;
 }
 
-.seg-text-layer span {
+.seg-text-wrapper {
   display: inline-block;
   vertical-align: top;
 
@@ -29,19 +29,22 @@
   text-align: center;
 
   margin-right: var(--seg-gap);
-
-  transform: skewX(var(--seg-skew));
-
-  font-size: calc(var(--seg-char-h) * 0.8);
-  font-family: monospace;
-  user-select: text;
 }
 
-.seg-text-layer span:last-child {
+.seg-text-wrapper:last-child {
   margin-right: 0;
 }
 
-.seg-text-layer span::selection {
+.seg-text-wrapper span {
+  display: inline-block;
+  font-family: monospace;
+  font-size: calc(var(--seg-char-h) * 0.8);
+
+  transform: skewX(var(--seg-skew));
+  user-select: text;
+}
+
+.seg-text-wrapper span::selection {
   background-color: rgba(255, 255, 255, 0.15);
 }
 

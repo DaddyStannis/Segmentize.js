@@ -3,7 +3,7 @@ import "./styles.css";
 
 export type Dimension =
   | number
-  // | `${number}em`
+  | `${number}em`
   | `${number}rem`
   | `${number}px`
   | `${number}%`;
@@ -28,14 +28,15 @@ export interface IBoardOptions {
   gap?: Dimension;
 }
 
-export const defaultDimension = "rem";
+export const defaultDimension = "em";
+export const defaultAngle = "deg";
 
 function dim2str(dim: Dimension): string {
   return typeof dim === "string" ? dim : `${dim}${defaultDimension}`;
 }
 
 function ang2str(ang: Angle): string {
-  return typeof ang === "string" ? ang : `${ang}deg`;
+  return typeof ang === "string" ? ang : `${ang}${defaultAngle}`;
 }
 
 export class SegmentBoard {
@@ -71,9 +72,9 @@ export class SegmentBoard {
       gap: options.gap || 2,
       char: {
         width: options.char?.width || 2,
-        height: options.char?.height || 3.5,
-        thickness: options.char?.thickness || 1,
-        gap: options.char?.gap || 1,
+        height: options.char?.height || 4,
+        thickness: options.char?.thickness || 0.3,
+        gap: options.char?.gap || 0.15,
       },
     };
 
@@ -115,8 +116,8 @@ export class SegmentBoard {
     this._root.classList.add("seg-root");
   }
 
-  public setText(newText: string) {
-    this._options.text = newText;
+  public setText(text: string) {
+    this._options.text = text;
     this.render();
   }
 
@@ -130,10 +131,14 @@ export class SegmentBoard {
     textLayer.className = "seg-text-layer";
 
     chars.forEach((char) => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "seg-text-wrapper";
       const span = document.createElement("span");
+      wrapper.appendChild(span);
       span.textContent = char;
-      textLayer.appendChild(span);
+      textLayer.appendChild(wrapper);
     });
+
     this._root.appendChild(textLayer);
 
     // Visual segments
@@ -145,6 +150,9 @@ export class SegmentBoard {
       box.className = "seg-char";
 
       if (this._options.type === "7-segment") {
+        const baseChar = char[0];
+        const hasDot = char.includes(".");
+
         const pattern = SEGMENT_MAP_7[char] || SEGMENT_MAP_7[" "];
         const segmentNames = ["a", "b", "c", "d", "e", "f", "g"];
 
