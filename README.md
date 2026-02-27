@@ -1,6 +1,6 @@
 # Segment Board
 
-A lightweight, framework-agnostic (Vanilla TS) library for creating realistic 7-segment displays.
+A lightweight, framework-agnostic (Vanilla TS) library for creating realistic 7-segment or matrix displays.
 
 ### ✨ Features
 
@@ -12,25 +12,25 @@ A lightweight, framework-agnostic (Vanilla TS) library for creating realistic 7-
 
 ## Install
 
-```
+```Bash
 npm install segment-board
 ```
 
 # or
 
-```
+```Bash
 yarn add segment-board
 ```
 
 ## Usage (Vanilla JS)
 
-```
+```JavaScript
 import { SegmentBoard } from 'segment-board';
 ```
 
 ## Usage (React)
 
-```
+```JavaScript
 import { SegmentDisplay } from 'segment-board/react';
 ```
 
