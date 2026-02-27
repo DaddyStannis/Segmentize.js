@@ -1,8 +1,8 @@
 import type { IBoardOptions, ICharOptions, Strategy } from "./IBoardOptions";
 import {
   type IDisplayStrategy,
-  MatrixStrategy,
-  SevenSegmentStrategy,
+  MatrixDisplay,
+  SevenSegmentDisplay,
 } from "./strategies";
 import "./styles.css";
 import { ang2str, dim2str, getPerfectChar } from "./utils";
@@ -56,8 +56,8 @@ export class SegmentBoard {
     this.setupStyles();
 
     this._strategies = {
-      "7-segment": new SevenSegmentStrategy(this._options),
-      matrix: new MatrixStrategy(this._options),
+      "7-segment": new SevenSegmentDisplay(this._options),
+      matrix: new MatrixDisplay(this._options),
     };
 
     this.render();

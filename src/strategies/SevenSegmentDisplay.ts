@@ -2,7 +2,7 @@ import type { IBoardOptions } from "../IBoardOptions";
 import { SEGMENT_MAP_7 } from "../segment-maps";
 import type { IDisplayStrategy } from "./IDisplayStrategy";
 
-export class SevenSegmentStrategy implements IDisplayStrategy {
+export class SevenSegmentDisplay implements IDisplayStrategy {
   private readonly _options: IBoardOptions;
 
   constructor(options: IBoardOptions) {
