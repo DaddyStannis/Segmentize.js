@@ -1,3 +1,3 @@
 export * from "./SevenSegmentStrategy";
-export * from "./MatrixStrategy";
+export * from "./Matrix5x7Strategy";
 export * from "./IDisplayStrategy";

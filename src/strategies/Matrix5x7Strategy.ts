@@ -2,7 +2,7 @@ import type { IBoardOptions } from "../IBoardOptions";
 import type { IDisplayStrategy } from "./IDisplayStrategy";
 import { SEGMENT_MAP_MATRIX_5X7 } from "../segment-maps";
 
-export class MatrixStrategy implements IDisplayStrategy {
+export class Matrix5x7Strategy implements IDisplayStrategy {
   private readonly _options: IBoardOptions;
 
   constructor(options: IBoardOptions) {
