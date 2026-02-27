@@ -24,7 +24,7 @@ export class SegmentBoard {
       const id =
         typeof selector === "string" ? selector : "provided by HTMLElement";
       throw new Error(
-        `[segmentize.js] Container "${id}" not found or incorrect type provided.`,
+        `[Segment Board] Container "${id}" not found or incorrect type provided.`,
       );
     }
 
@@ -107,7 +107,7 @@ export class SegmentBoard {
     const strategy = this._strategies[this._options.type];
 
     if (!strategy) {
-      throw new Error("[segmentize.js] Invalid display type specified.");
+      throw new Error("[Segment Board] Invalid display type specified.");
     }
 
     const chars = this.splitText();

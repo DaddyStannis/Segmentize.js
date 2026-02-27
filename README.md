@@ -1,4 +1,4 @@
-# Segmentize.js
+# Segment Board
 
 A lightweight, framework-agnostic (Vanilla TS) library for creating realistic 7-segment displays.
 
@@ -9,6 +9,30 @@ A lightweight, framework-agnostic (Vanilla TS) library for creating realistic 7-
 - 📐 **Smart Scaling:** All dimensions are based on CSS `em` units. Simply change the `font-size` on the parent container, and the entire board scales proportionally.
 - ⏱️ **Hardware Decimal Point Logic:** The decimal point (`.`) is rendered natively as an 8th segment attached to the previous digit, preventing it from taking up a full empty character slot.
 - ⚛️ **Framework-agnostic:** Written in pure TypeScript. Extremely easy to wrap into a `<SegmentBoard />` component for React, Vue, Angular, or Svelte.
+
+## Install
+
+```
+npm install segment-board
+```
+
+# or
+
+```
+yarn add segment-board
+```
+
+## Usage (Vanilla JS)
+
+```
+import { SegmentBoard } from 'segment-board';
+```
+
+## Usage (React)
+
+```
+import { SegmentDisplay } from 'segment-board/react';
+```
 
 ![Demo 1](/assets/screenshots/localhost.png)
 
@@ -23,7 +47,7 @@ A lightweight, framework-agnostic (Vanilla TS) library for creating realistic 7-
 **TypeScript:**
 
 ```TypeScript
-import { SegmentBoard } from './segmentize';
+import { SegmentBoard } from './segment-board';
 
 // 1. Initialize the board
 const board = new SegmentBoard('#neon-board', {

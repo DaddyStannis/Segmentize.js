@@ -14,8 +14,11 @@ export default defineConfig({
         react: resolve(__dirname, "src/react.tsx"),
       },
       formats: ["es", "cjs"],
-      name: "Segmentize",
-      fileName: "segmentize",
+      name: "Segment Board",
+      fileName: (format, entryName) => {
+        const extension = format === "es" ? "js" : "cjs";
+        return `${entryName}.${extension}`;
+      },
     },
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"],
